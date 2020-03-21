@@ -10,8 +10,8 @@ ARG ZK_DIST=zookeeper-3.5.7
 RUN set -x \
     && apt-get update \
     && apt-get install -y openjdk-8-jre-headless wget netcat-openbsd \
-	&& wget -q "http://www.apache.org/dist/zookeeper/$ZK_DIST/$ZK_DIST.bin.tar.gz" \
-    && wget -q "http://www.apache.org/dist/zookeeper/$ZK_DIST/$ZK_DIST.tar.gz.asc" \
+	&& wget -q "http://www.apache.org/dist/zookeeper/$ZK_DIST/$ZK_DIST-bin.tar.gz" \
+    && wget -q "http://www.apache.org/dist/zookeeper/$ZK_DIST/$ZK_DIST-bin.tar.gz.asc" \
     && export GNUPGHOME="$(mktemp -d)" \
     && gpg --keyserver ha.pool.sks-keyservers.net --recv-key "$GPG_KEY" \
     && gpg --batch --verify "$ZK_DIST.tar.gz.asc" "$ZK_DIST.tar.gz" \
